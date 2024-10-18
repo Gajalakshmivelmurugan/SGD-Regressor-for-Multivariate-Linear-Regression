@@ -33,14 +33,12 @@ from sklearn.multioutput import MultiOutputRegressor
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
 from sklearn.preprocessing import StandardScaler
-```
-```
+
 data=fetch_california_housing()
 df=pd.DataFrame(data.data,columns=data.feature_names)
 df['target']=data.target
 print(df.head())
-```
-```
+
 X=data.data[:,:3]
 
 Y=np.column_stack((data.target,data.data[:,6]))
@@ -59,8 +57,7 @@ sgd=SGDRegressor(max_iter=1000,tol=1e-3)
 multi_output_sgd=MultiOutputRegressor(sgd)
 
 multi_output_sgd.fit(X_train,Y_train)
-```
-```
+
 Y_pred=multi_output_sgd.predict(X_test)
 
 
@@ -69,10 +66,8 @@ Y_test=scaler_Y.inverse_transform(Y_test)
 
 mse=mean_squared_error(Y_test,Y_pred)
 print("Mean Squared Error :",mse)
-```
-```
+`
 print("\nPredictions:\n",Y_pred[:5])
-```
 */
 
 
